@@ -5,7 +5,7 @@
 
 declare module "react-native-really-awesome-button" {
   import React, { Component } from "react";
-  import { ViewStyle } from "react-native";
+  import { ViewStyle, StyleProp } from "react-native";
 
   type AfterPressFn = (callback: () => void) => void;
 
@@ -36,11 +36,12 @@ declare module "react-native-really-awesome-button" {
     springRelease?: boolean;
     stretch?: boolean;
     style?: ViewStyle;
+    contentStyle?: StyleProp<ViewStyle>;
     textColor?: string;
     textLineHeight?: number;
     textSize?: number;
     textFamily?: string;
-    width?: number;
+    width?: number | null;
     onPress?: (afterPressFn?: AfterPressFn) => void;
   }
 

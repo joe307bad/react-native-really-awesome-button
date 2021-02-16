@@ -369,7 +369,7 @@ export default class Button extends React.Component {
   };
 
   renderContent(dynamicStyles) {
-    const { children } = this.props;
+    const { children, contentStyle } = this.props;
     const animatedStyles = {
       opacity: this.textOpacity,
       transform: [
@@ -410,7 +410,8 @@ export default class Button extends React.Component {
         style={[
           styles.container__view,
           dynamicStyles.container__view,
-          animatedStyles
+          animatedStyles,
+          contentStyle
         ]}
       >
         {children}
@@ -431,6 +432,8 @@ export default class Button extends React.Component {
         testID="aws-btn-content-view"
         onPressIn={this.pressIn}
         onPressOut={this.pressOut}
+        delayPressIn={0}
+        delayPressOut={0}
       >
         <Animated.View
           testID="aws-btn-content-2"
