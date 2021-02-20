@@ -220,10 +220,6 @@ export default class Button extends React.Component {
     ) {
       return false;
     }
-    if (event.nativeEvent && event.nativeEvent.contentOffset) {
-      this.release();
-      return;
-    }
     if (this.animating === true) {
       this.progressing = true;
       this.press();
