@@ -35,7 +35,7 @@ declare module "react-native-really-awesome-button" {
     raiseLevel?: number;
     springRelease?: boolean;
     stretch?: boolean;
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
     contentStyle?: StyleProp<ViewStyle>;
     textColor?: string;
     textLineHeight?: number;
