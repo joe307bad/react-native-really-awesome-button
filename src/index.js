@@ -421,11 +421,12 @@ export default class Button extends React.Component {
       ...this.props,
       stateWidth: this.state.width
     });
-    const { ExtraContent, style, activityColor } = this.props;
+    const { ExtraContent, style, activityColor, testID } = this.props;
+    const testIdPrefix = testID ? `${testID}.` : '';
 
     return (
       <TouchableWithoutFeedback
-        testID="aws-btn-content-view"
+        testID={`${testIdPrefix}aws-btn-content-view`}
         onPressIn={this.pressIn}
         onPressOut={this.pressOut}
         delayPressIn={0}

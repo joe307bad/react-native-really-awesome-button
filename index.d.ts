@@ -10,6 +10,7 @@ declare module "react-native-really-awesome-button" {
   type AfterPressFn = (callback: () => void) => void;
 
   export interface AwesomeButtonProps {
+    testID?: string;
     activityColor?: string;
     backgroundActive?: string;
     backgroundColor?: string;
