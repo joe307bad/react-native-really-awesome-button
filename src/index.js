@@ -128,12 +128,20 @@ export default class Button extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.disabled !== this.state.disabled) {
-      this.setState({ disabled: nextProps.disabled });
+  static getDerivedStateFromProps(nextProps, prevState){
+    if(nextProps.disabled !== prevState.disabled){
+      return { disabled: nextProps.disabled };
     }
 
-    if (nextProps.disabled === true) {
+    return null;
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.disabled !== this.state.disabled) {
+      this.setState({ disabled: prevProps.disabled });
+    }
+
+    if (prevProps.disabled === true) {
       animateTiming({
         variable: this.animatedValue,
         toValue: 1,
@@ -141,7 +149,7 @@ export default class Button extends React.Component {
       });
     }
 
-    if (nextProps.disabled === false) {
+    if (prevProps.disabled === false) {
       animateTiming({
         variable: this.animatedValue,
         toValue: 0,
