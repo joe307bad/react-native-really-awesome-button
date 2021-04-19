@@ -53,6 +53,7 @@ export default class Button extends React.Component {
     height: PropTypes.number,
     paddingHorizontal: PropTypes.number,
     onPress: PropTypes.func,
+    onNativePress: PropTypes.func,
     progress: PropTypes.bool,
     paddingBottom: PropTypes.number,
     raiseLevel: PropTypes.number,
@@ -88,6 +89,7 @@ export default class Button extends React.Component {
     height: DEFAULT_HEIGHT,
     paddingHorizontal: DEFAULT_HORIZONTAL_PADDING,
     onPress: null,
+    onNativePress: null,
     progress: false,
     paddingBottom: 0,
     paddingTop: 0,
@@ -128,8 +130,8 @@ export default class Button extends React.Component {
     };
   }
 
-  static getDerivedStateFromProps(nextProps, prevState){
-    if(nextProps.disabled !== prevState.disabled){
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.disabled !== prevState.disabled) {
       return { disabled: nextProps.disabled };
     }
 
@@ -466,6 +468,7 @@ export default class Button extends React.Component {
     return (
       <TouchableWithoutFeedback
         testID="aws-btn-content-view"
+        onPress={() => this.props.onNativePress?.()}
         onPressIn={this.pressIn}
         onPressOut={this.pressOut}
         delayPressIn={0}
