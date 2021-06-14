@@ -65,6 +65,7 @@ export default class Button extends React.Component {
     textSize: PropTypes.number,
     textFamily: PropTypes.string,
     width: PropTypes.number,
+    loading: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -103,6 +104,7 @@ export default class Button extends React.Component {
     textSize: DEFAULT_TEXT_SIZE,
     textFontFamily: null,
     width: DEFAULT_WIDTH,
+    loading: false
   };
 
   constructor(props) {
@@ -407,7 +409,7 @@ export default class Button extends React.Component {
   };
 
   renderContent(dynamicStyles) {
-    const { children, contentStyle } = this.props;
+    const { children, contentStyle, loading, activityColor } = this.props;
     const animatedStyles = {
       opacity: this.textOpacity,
       transform: [
@@ -452,6 +454,7 @@ export default class Button extends React.Component {
           contentStyle,
         ]}
       >
+        {loading && <ActivityIndicator style={{paddingLeft: 10}} color={activityColor} />}
         {children}
       </Animated.View>
     );
@@ -518,27 +521,6 @@ export default class Button extends React.Component {
                   animatedValues.animatedActive,
                 ]}
               />
-              {this.state.activity === true && (
-                <>
-                  <Animated.View
-                    testID="aws-btn-progress"
-                    style={[
-                      styles.progress,
-                      dynamicStyles.progress,
-                      animatedValues.animatedProgress,
-                    ]}
-                  />
-                  <Animated.View
-                    testID="aws-btn-activity-indicator"
-                    style={[
-                      styles.container__activity,
-                      animatedValues.animatedActivity,
-                    ]}
-                  >
-                    <ActivityIndicator color={activityColor} />
-                  </Animated.View>
-                </>
-              )}
               {this.renderContent(dynamicStyles)}
             </View>
           </Animated.View>

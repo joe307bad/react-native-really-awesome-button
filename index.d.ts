@@ -45,6 +45,7 @@ declare module "react-native-really-awesome-button" {
     width?: number | null;
     onPress?: (afterPressFn?: AfterPressFn) => void;
     onNativePress?: () => void;
+    loading?: boolean;
   }
 
   export default class AwesomeButton extends Component<
