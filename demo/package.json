@@ -11,16 +11,17 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@expo/samples": "2.1.1",
-    "expo": "^33.0.0",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
-    "react-native-really-awesome-button": "1.4.2",
-    "react-navigation": "^3.0.9"
+    "@expo/samples": "^3.0.3",
+    "expo": "^40.0.0",
+    "react": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.1.tar.gz",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-really-awesome-button": "../",
+    "react-navigation": "^4.4.4"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.0.0",
-    "jest-expo": "^33.0.0"
+    "babel-preset-expo": "8.3.0",
+    "jest-expo": "^40.0.0"
   },
   "private": true
 }
